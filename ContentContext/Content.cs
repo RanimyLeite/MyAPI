@@ -5,10 +5,12 @@ namespace MyApi.ContentContext
 {
   public abstract class Content
   {
-    public Content()
+    public Content(string title, string url)
     {
       Guid guid = Guid.NewGuid();
       Id = guid;
+      Title = title;
+      Url = url;
     }
     public Guid Id { get; set; }
     public string Title { get; set; }
