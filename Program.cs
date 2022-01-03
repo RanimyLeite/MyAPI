@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Linq;
 using System.Globalization;
 using System;
@@ -16,27 +17,27 @@ namespace MyAPI
       articles.Add(new Article("Artigo sobre C#", "csharp"));
       articles.Add(new Article("Artigo sobre .Net", "dotnet"));
 
-      foreach (var article in articles)
+      /*foreach (var article in articles)
       {
         Console.WriteLine(article.Id);
         Console.WriteLine(article.Title);
         Console.WriteLine(article.Url);
-      }
+      }*/
 
       var courses = new List<Course>();
       var courseOOP = new Course("Fundamentos OOP", "fundamentos-oop");
-      var courseCsharo = new Course("Fundamentos C#", "fundamentos-csharp");
+      var courseCsharp = new Course("Fundamentos C#", "fundamentos-csharp");
       var courseAspNet = new Course("Fundamentos ASP.NET", "fundamentos-aspnet");
 
       courses.Add(courseOOP);
-      courses.Add(courseCsharo);
+      courses.Add(courseCsharp);
       courses.Add(courseAspNet);
 
       var carrers = new List<Career>();
       var careerDotnet = new Career("Especialista .NET", "especialista-dotnet");
-      var carrerItem2 = new CareerItem(2, "Aprenda OOP", "", null);
-      var carrerItem = new CareerItem(1, "Começe por aqui!", "", null);
-      var carrerItem3 = new CareerItem(3, "Aprenda .NET", "", null);
+      var carrerItem2 = new CareerItem(2, "Aprenda OOP", "", null); //Testando com null
+      var carrerItem = new CareerItem(1, "Começe por aqui!", "", courseCsharp);
+      var carrerItem3 = new CareerItem(3, "Aprenda .NET", "", courseAspNet);
 
       careerDotnet.Items.Add(carrerItem2);
       careerDotnet.Items.Add(carrerItem);
@@ -50,6 +51,13 @@ namespace MyAPI
         foreach (var item in carrer.Items.OrderBy(x => x.Order))
         {
           Console.WriteLine($"{item.Order} - {item.Title}");
+          Console.WriteLine(item.Course?.Title);
+          Console.WriteLine(item.Course?.Level);
+
+          foreach (var notification in item.Notifications)
+          {
+            Console.WriteLine($"{notification.Property} - {notification.Message}");
+          }
         }
       }
     }
