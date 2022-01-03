@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MyApi.SharedContext;
 
 namespace MyApi.ContentContext
 {

@@ -1,4 +1,5 @@
 using MyApi.ContentContext.Enums;
+using MyApi.SharedContext;
 
 namespace MyApi.ContentContext
 {

@@ -1,6 +1,8 @@
 using System;
 using System.Reflection.Metadata;
 using System.ComponentModel;
+using MyApi.SharedContext;
+
 namespace MyApi.ContentContext
 {
   public abstract class Content : Base
