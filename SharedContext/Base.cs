@@ -1,7 +1,7 @@
 using System;
 using MyApi.NotificationContext;
 
-namespace MyApi.ContentContext
+namespace MyApi.SharedContext
 {
   public abstract class Base : Notifiable
   {

@@ -1,4 +1,5 @@
 using MyApi.NotificationContext;
+using MyApi.SharedContext;
 
 namespace MyApi.ContentContext
 {
