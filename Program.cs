@@ -1,10 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Linq;
-using System.Globalization;
+﻿using System.Linq;
 using System;
 using System.Collections.Generic;
 using MyApi.ContentContext;
+using MyApi.SubscriptionContex;
 
 namespace MyAPI
 {
@@ -17,12 +15,12 @@ namespace MyAPI
       articles.Add(new Article("Artigo sobre C#", "csharp"));
       articles.Add(new Article("Artigo sobre .Net", "dotnet"));
 
-      /*foreach (var article in articles)
+      foreach (var article in articles)
       {
         Console.WriteLine(article.Id);
         Console.WriteLine(article.Title);
         Console.WriteLine(article.Url);
-      }*/
+      }
 
       var courses = new List<Course>();
       var courseOOP = new Course("Fundamentos OOP", "fundamentos-oop");
@@ -35,7 +33,7 @@ namespace MyAPI
 
       var carrers = new List<Career>();
       var careerDotnet = new Career("Especialista .NET", "especialista-dotnet");
-      var carrerItem2 = new CareerItem(2, "Aprenda OOP", "", null); //Testando com null
+      var carrerItem2 = new CareerItem(2, "Aprenda OOP", "", courseOOP);
       var carrerItem = new CareerItem(1, "Começe por aqui!", "", courseCsharp);
       var carrerItem3 = new CareerItem(3, "Aprenda .NET", "", courseAspNet);
 
@@ -59,6 +57,10 @@ namespace MyAPI
             Console.WriteLine($"{notification.Property} - {notification.Message}");
           }
         }
+
+        var payPalSubscription = new PayPalSubscription();
+        var studant = new Studant();
+        studant.CreateSubscription(payPalSubscription);
       }
     }
   }
